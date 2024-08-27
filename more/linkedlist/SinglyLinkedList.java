@@ -27,6 +27,7 @@ public class SinglyLinkedList {
   public void print() {
     Node current = head;
     if (head == null) {
+
       System.out.println("Empty List");
       return;
     }
