@@ -12,6 +12,7 @@ public class SinglyLinkedList {
   public Node head = null;
   public Node tail = null;
 
+  // Insertion Operation
   // add at tail
   public void addNode(int data) {
     Node newNode = new Node(data);
@@ -60,6 +61,100 @@ public class SinglyLinkedList {
 
   }
 
+  // Deletion Operation
+
+  // Delete at head
+  public void deleteNodeAtHead() {
+    if (head != null) {
+      head = head.next;
+    }
+  }
+
+  // Delete Tail
+  public void deleteNodeAtTail() {
+    Node current = head;
+    while (current != null) {
+      if (current.next.next == null) {
+        current.next = null;
+        tail = current;
+        break;
+      }
+      current = current.next;
+    }
+  }
+
+  // Delete node from middle
+
+  public void deleteNodeFromMiddle() {
+
+    Node current = head;
+    Node previous = null;
+    int count = 0;
+
+    while (current != null) {
+      count++;
+      current = current.next;
+    }
+    current = head;
+
+    System.out.println(count);
+    if (count == 1) {
+      head = null;
+      return;
+    }
+
+    int i = 0;
+    while (current != null) {
+      if (i == count / 2) {
+        previous.next = current.next;
+        break;
+      }
+      previous = current;
+      current = current.next;
+      i++;
+    }
+  }
+
+  public void deletNodeAtNth(int index) {
+    Node current = head;
+    int i = 0;
+    Node previous = null;
+
+    if (index == 0) {
+      this.deleteNodeAtTail();
+      return;
+    }
+
+    while (current != null) {
+      if (i == index) {
+        previous.next = current.next;
+        break;
+      }
+      previous = current;
+      i++;
+      current = current.next;
+    }
+    current = head;
+
+  }
+
+  // Reverse the linkedlist
+
+  public void reverse() {
+    Node current = head;
+    Node next = null;
+    Node previous = null;
+
+    while (current != null) {
+      next = current.next;
+      current.next = previous;
+      previous = current;
+
+      current = next;
+    }
+    head = previous;
+  }
+
   public void print() {
     Node current = head;
     if (head == null) {
@@ -80,6 +175,23 @@ public class SinglyLinkedList {
     list.addNode(3);
     list.addAtHead(3);
     list.addAtNth(2, 9);
+    list.addAtHead(2);
+    list.print();
+    // list.deleteNodeAtHead();
+    // list.print();
+    // list.deleteNodeAtTail();
+    // list.deleteNodeFromMiddle();
+    // list.print();
+    // list.deleteNodeFromMiddle();
+    // list.print();
+    // list.deleteNodeFromMiddle();
+    // list.print();
+    // list.deleteNodeFromMiddle();
+    // list.deletNodeAtNth(3);
+    // list.deletNodeAtNth(1);
+    // list.deletNodeAtNth(0);
+    list.print();
+    list.reverse();
     list.print();
   }
 }
