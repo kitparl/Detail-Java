@@ -8,13 +8,13 @@ public class Test {
   }
 
   public static void test() {
-
+    int a = 0;
     System.out.println("test");
   }
 }
 
 class Test2 {
   public static void main(String[] args) {
-    Test test = new Test();
+    // Test test = new Test();
   }
 }
