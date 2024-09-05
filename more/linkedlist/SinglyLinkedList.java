@@ -195,3 +195,6 @@ public class SinglyLinkedList {
     list.print();
   }
 }
+
+// Merge two sorted liskedlist in sorted oder
+// Remove all duplicates in linkedlist
